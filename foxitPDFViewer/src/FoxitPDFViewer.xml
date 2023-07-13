@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget id="foxit.foxitpdfviewer.FoxitPDFViewer" pluginWidget="true" needsEntityContext="true" offlineCapable="true"
+        supportedPlatform="Web"
+        xmlns="http://www.mendix.com/widget/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd">
+    <name>Foxit PDFViewer</name>
+    <description>Foxit PDF SDK For Web PDFViewer</description>
+    <icon/>
+    <properties>
+        <propertyGroup caption="General">
+            <property key="licenseSN" type="string" required="false">
+                <caption>licenseSN</caption>
+                <description>license SN</description>
+            </property>
+            <property key="licenseKey" type="string" required="false">
+                <caption>licenseKey</caption>
+                <description>license Key</description>
+            </property>
+            <property key="l" type="string" required="false">
+                <caption>license</caption>
+                <description>Encrypted license</description>
+            </property>
+            <property key="instanceID" type="string" required="false">
+                <caption>instanceID</caption>
+                <description>PDFViewer Specifies the id of multiple instances</description>
+            </property>
+            <property key="height" type="string" required="true" defaultValue="calc(100% - 150px)">
+                <caption>height</caption>
+                <description>PDFViewer height</description>
+            </property>
+            <property key="fileUrl" type="string" required="false">
+                <caption>URL</caption>
+                <description>Manually specify a URL to load from.</description>
+            </property>
+            <property key="file" type="file" required="false">
+                <caption>File</caption>
+                <description>A FileDocument type of entity.</description>
+            </property>
+        </propertyGroup>
+    </properties>
+</widget>
