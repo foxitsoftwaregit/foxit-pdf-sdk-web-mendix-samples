@@ -8,8 +8,13 @@ export default async args => {
     args.configDefaultConfig[args.configDefaultConfig.length - 1].plugins.push(command([
         () => {
             let filePath = '@foxitsoftware/foxit-pdf-sdk-for-web-library'
-            let copyTo = join(json.config.projectPath, 'deployment/web/resources/@foxitsoftware/')
-            createDir(copyTo)
+            let copyTo = 'theme/web/resources/@foxitsoftware/'
+            if (!existsSync(join(json.config.projectPath, 'theme/web'))) {
+                copyTo = 'theme/resources/@foxitsoftware/'
+            }
+            copyTo = join(json.config.projectPath, copyTo)
+
+            mkdirSync(copyTo, { recursive: true });
             cp(
                 '-R',
                 join(__dirname, "node_modules/", filePath),
@@ -19,14 +24,4 @@ export default async args => {
     ]))
 
     return args.configDefaultConfig;
-}
-
-function createDir(dirPath) {
-    if (!existsSync(dirPath)) {
-        let parentDir = dirname(dirPath);
-        if (!existsSync(parentDir)) {
-            createDir(parentDir);
-        }
-        mkdirSync(dirPath);
-    }
 }
