@@ -32,6 +32,7 @@ export default function PDFViewer(props) {
         licenseSN: props.licenseSN,
         licenseKey: props.licenseKey,
         l: props.l,
+        fontPath: props.fontPath,
       },
       customs: {
         ScrollWrap: _PDFViewCtrl.CustomScrollWrap.create(ePdfViewer)

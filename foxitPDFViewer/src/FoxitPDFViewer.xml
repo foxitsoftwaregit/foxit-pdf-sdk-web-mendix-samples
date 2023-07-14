@@ -28,6 +28,10 @@
                 <caption>height</caption>
                 <description>PDFViewer height</description>
             </property>
+            <property key="fontPath" type="string" required="true" defaultValue="https://webpdf.foxitsoftware.com/webfonts">
+                <caption>fontPath</caption>
+                <description>The JR engine render fonts path.</description>
+            </property>
             <property key="fileUrl" type="string" required="false">
                 <caption>URL</caption>
                 <description>Manually specify a URL to load from.</description>
