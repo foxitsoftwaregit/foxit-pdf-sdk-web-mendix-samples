@@ -5,7 +5,7 @@ import json from './package.json'
 import { existsSync, mkdirSync } from 'fs'
 
 export default async args => {
-    args.configDefaultConfig[0].plugins.push(command([
+    args.configDefaultConfig[args.configDefaultConfig.length - 1].plugins.push(command([
         () => {
             let filePath = '@foxitsoftware/foxit-pdf-sdk-for-web-library'
             let copyTo = join(json.config.projectPath, 'deployment/web/resources/@foxitsoftware/')
