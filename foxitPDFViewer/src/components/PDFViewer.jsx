@@ -54,7 +54,9 @@ export default function PDFViewer(props) {
         range: {
             url: props.fileUrl,
         }
-      })
+      }).catch((ex) => {
+        reopenPDF(viewer, ex);
+      });
     } else if (props.file) {
       viewer.openPDFByFile(props.file);
     }
@@ -72,4 +74,17 @@ export default function PDFViewer(props) {
           ref={viewerRef}
       ></div>
   );
+}
+
+function reopenPDF (viewer, ex) {
+    var password = prompt("This PDF document is encrypted, please input the password.")
+    if (password) {
+        viewer.reopenPDFDoc(ex.pdfDoc, {
+        password
+        }).catch((ex) => {
+            if (ex && ex?.error === 3) {
+                reopenPDF(viewer, ex);
+            }
+        });
+    }
 }
